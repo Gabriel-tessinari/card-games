@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/variables';
+
+.centered {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  border: 0;
+  min-height: 200px;
+  width: 500px;
+
+  .card-header {
+    background: $dark;
+    color: $gold;
+  }
+}
+
+.btn-menu {
+  border-color: $dark !important;
+  color: $dark;
+  font-size: 100%;
+}
+
+.btn-menu:hover {
+  background-color: $dark !important;
+  border-color: $dark !important;
+  color: $gold;
+}

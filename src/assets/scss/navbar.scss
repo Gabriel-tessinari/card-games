@@ -1,0 +1,20 @@
+@import './variables';
+
+.navbar {
+  background-color: $mid;
+  
+  .navbar-brand {
+   color: $gold;
+  }
+
+  .btn-nav {
+    border-color: $gold !important;
+    color: $gold;
+  }
+  
+  .btn-nav:hover {
+    background-color: $gold !important;
+    border-color: $gold !important;
+    color: $mid;
+  }
+}

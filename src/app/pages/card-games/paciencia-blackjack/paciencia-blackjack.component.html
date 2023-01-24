@@ -1,0 +1,147 @@
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid fw-wrap">
+      <a class="navbar-brand" href="#">Jogos</a>
+      <h1 class="mb-0">Pontuação: {{score}}</h1>
+      <div>
+        <button class="btn btn-nav" style="margin: 8px;" type="button"
+        (click)="openModalRestart()">
+          Reiniciar Jogo
+        </button>
+        <button class="btn btn-nav" type="button">Regras</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section>
+  <div class="container-fluid body">
+    <div class="row">
+      <div class="card" [ngClass]="deck.numberOfCards > 0 ? 'deck-full' : 'deck-empty'">
+        <div class="mini-card" *ngIf="deck.numberOfCards > 0">
+          {{deck.numberOfCards}}
+        </div>
+        <div *ngIf="deck.numberOfCards == 0">
+          <i class="fa-regular fa-circle-xmark fa-5x"></i>
+        </div>
+      </div>
+      <div class="card" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
+        <div class="card-header">{{activeCard.value}}{{activeCard.suit}}</div>
+        <div class="card-body">{{activeCard.suit}}</div>
+        <div class="card-footer">{{activeCard.value}}{{activeCard.suit}}</div>
+      </div>
+      <div class="card" [ngClass]="discardPile.numberOfCards > 0 ? 'deck-full' : 'deck-empty'">
+        <div class="mini-card" *ngIf="discardPile.numberOfCards > 0">
+          {{discardPile.numberOfCards}}
+        </div>
+        <div *ngIf="discardPile.numberOfCards == 0">
+          <i class="fa-regular fa-circle-xmark fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid body">
+  <h2>Tabuleiro</h2>
+  <div class="row">
+    <div class="col-md-6 line" *ngFor="let line of lines" (click)="addCardToLine(line)" 
+    [ngClass]="(activeCard.points[0] + line.totalPoints1) > 21 ? 'disabled' : ''">
+      <div class="d-flex fd-row jc-space-between fw-wrap">
+        <div class="col-6 card-mini" *ngFor="let card of line.cards; let index = index"
+        [ngClass]="line.hasCardInPosition(index) ? 'card-mini-full' : ''">
+          <div class="row card-mini-content" *ngIf="line.hasCardInPosition(index)"
+          [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
+            {{card.value}}
+          </div>
+          <div class="row card-mini-content" *ngIf="line.hasCardInPosition(index)"
+          [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
+            {{card.suit}}
+          </div>
+        </div>
+        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(0)"></div>
+        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(1)"></div>
+        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(2)"></div>
+        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(3)"></div>
+        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(4)"></div>
+        <div class="mx-2 d-flex fd-column ai-center">
+          <p class="mb-0">Pontos</p>
+          <p class="mb-0 score" *ngIf="line.totalPoints2 == 0">{{line.totalPoints1}}</p>
+          <p class="mb-0 score" *ngIf="line.totalPoints2 > 0">
+            {{line.totalPoints1}}/{{line.totalPoints2}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="modal-game-over" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Game Over!</h4>
+      </div>
+      <div class="modal-body">
+        <p *ngIf="score > records.worldRecord">
+          Parabéns! Você bateu o recorde mundial.
+        </p>
+        <p *ngIf="score <= records.worldRecord && score > records.userRecord">
+          Parabéns! Esta foi a sua melhor pontuação.
+        </p>
+        <p *ngIf="score <= records.worldRecord && score <= records.userRecord">
+          Você perdeu.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="exitGame()">Sair do Jogo</button>
+        <button type="button" class="btn btn-primary" (click)="restartGame()">Jogar Novamente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="modal-restart" class="modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Reiniciar Jogo</h4>
+      </div>
+      <div class="modal-body" style="font-size: 1.2rem;">
+        <p>Tem certeza de que deseja reiniciar o jogo?</p>
+        <p>Seu progresso será perdido.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModalRestart()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="forcedRestartGame()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="toast" class="toast" aria-live="assertive" aria-atomic="true" 
+style="position: absolute; top: 4rem; right: .75rem;">
+  <div class="toast-header">
+    <strong class="mr-auto" style="font-size: larger;">Você ganhou pontos!</strong>
+    <i class="fa-solid fa-xmark fa-2x me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+    style="cursor: pointer"></i>
+  </div>
+  <div class="toast-body">
+    {{toastMessage}}
+  </div>
+</div>
+
+<!-- <div class="infos">
+  <div class="row">
+    <h1>Pontuação: {{score}}</h1>
+  </div>
+  <div class="row">
+    <h4>Recorde Pessoal: {{records.userRecord}} pontos em {{records.date}}</h4>
+  </div>
+  <div class="row">
+    <h4>Recorde Geral: {{records.worldRecord}} pontos por {{records.bestPlayer}}</h4>
+  </div>
+</div> -->

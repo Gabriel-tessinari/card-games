@@ -1,0 +1,103 @@
+@import './variables';
+
+.red-suit {
+  color: red !important;
+}
+
+.black-suit {
+  color: black !important;
+}
+
+//deck
+.deck-full {
+  background-color: $light;
+  border: 15px solid $gold;
+}
+
+.deck-empty { 
+  background-color: $light;
+  color: $silver;
+}
+
+//card
+.card {
+  align-items: center;
+  border: 0;
+  border-radius: .5rem;
+  display: flex;
+  height: 18rem;
+  justify-content: center;
+  margin: .5rem;
+  position: relative;
+  width: 12rem;
+
+  .mini-card {
+    align-items: center;
+    background-color: $mid;
+    color: $gold;
+    display: flex;
+    font-size: 4rem;
+    height: 13rem;
+    justify-content: center;
+    line-height: 100px;
+    width: 7rem;
+  }
+  
+  .card-header, .card-body,
+  .card-footer {
+    background-color: $gold;
+    border: 0;
+    width: 12rem;
+  }
+  
+  .card-header {
+    align-items: flex-start;
+    border-radius: .5rem .5rem 0 0;
+    display: flex;
+    font-size: 2.5rem;
+    height: 3rem;
+    justify-content: left;
+    padding-top: 0;
+  }
+  
+  .card-body {
+    align-items: center;
+    display: flex;
+    font-size: 10rem;
+    height: 10rem;
+    justify-content: center;
+  }
+  
+  .card-footer {
+    align-items: flex-start;
+    border-radius: .5rem .5rem 0 0;
+    display: flex;
+    font-size: 2.5rem;
+    height: 3rem;
+    justify-content: left;
+    padding-top: 0;
+    transform: rotate(180deg);
+  }
+}
+
+//mini card
+.card-mini {
+  align-items: center;
+  background-color: $light;
+  border-radius: .5rem;
+  height: 9rem;
+  justify-content: center;
+  margin: .5rem;
+  position: relative;
+  width: 6rem;
+
+  &.card-mini-full {
+    background-color: $gold !important;
+  }
+
+  .card-mini-content {
+    font-size: 4rem;
+    height: 50%;
+    justify-content: center;
+  }
+}

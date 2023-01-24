@@ -1,0 +1,43 @@
+@import '../../../../assets/scss/variables.scss';
+
+.body {
+  padding: 1rem 2rem 0 2rem;
+}
+
+.line {
+  border: 1px solid $gold;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .score {
+    font-size: 4.5rem;
+  }
+}
+
+.line:hover {
+  opacity: 0.5;
+}
+
+/*TOAST*/
+.toast {
+  border-radius: .5rem;
+}
+
+.toast-header {
+  background-color: white;
+  border: none;
+  border-radius: .5rem .5rem 0 0;
+  color: $silver;
+}
+
+.toast-body {
+  background-color: white;
+  border-radius: 0 0 .5rem .5rem;
+  color: black;
+  font-size: large;
+}

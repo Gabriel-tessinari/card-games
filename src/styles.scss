@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import './assets/scss/variables';
+@import './assets/scss/deck-card.scss';
+@import './assets/scss/modal.scss';
+@import './assets/scss/navbar.scss';
+
+body {
+  background-color: $primary;
+  color: $gold;
+  font-family: 'League Spartan', sans-serif;
+  font-size: xx-large;
+}
+
+//display flex options
+.d-flex {
+  display: flex;
+
+  &.ai-center {
+    align-items: center;
+  }
+
+  &.fd-row {
+    flex-direction: row;
+  }
+
+  &.fd-column {
+    flex-direction: column;
+  }
+
+  &.fw-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.fw-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.jc-space-between {
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,24 @@
+.modal-content {
+  border: none;
+  border-radius: .5rem;
+
+  .modal-header, .modal-footer {
+    border: none;
+    color: black;
+  }
+
+  .modal-header {
+    .modal-title {
+      color: red;
+    }
+  }
+  
+  .modal-body {
+    color: black;
+    font-size: 1.2rem;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

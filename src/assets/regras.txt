@@ -1,0 +1,53 @@
+There are five columns on the board for you to place your cards on. 
+You must place cards into these columns to make a total of 21. 
+When the cards in the column total up to 21, the column is cleared and you are awarded points. 
+You start the game with a pack of 52 cards. 
+Click the arrow at the top of each column to place a card in that column. 
+Most of the cards are labelled with their value, 
+but some cards are not - the Jack, Queen and King (known as the 'face cards') and the Ace.
+
+Bonus Moves
+When you complete a column, you are awarded with 10 points. 
+However, there are several special moves which will earn you bonus points.
+
+Blackjack
+A blackjack is worth 21 points, and can be accomplished by reaching 21 using only a 
+10, Jack, Queen or King and an Ace.
+
+Large 21
+A large 21 is worth 15 points, and requires 4 or 5 cards totaling 21.
+
+7-7-7
+A large 7-7-7 is worth 15 points, and (not surprisingly) requires three '7' cards in a row.
+
+6-7-8
+A large 6-7-8 is worth 15 points, and (again, not surprisingly) requires a '6', '7' and '8'.
+
+5 Under 21
+Worth only 5 points, you receive this if you end up with 5 cards under 21.
+
+
+Secret Moves
+There are also some 'secret' moves, which aren't shown on the game board.
+
+Double Blackjack
+Get 2 blackjacks in a row, worth 50 points! 
+This bonus move only works with the following two blackjack combinations.
+
+Super Blackjack
+Get a blackjack from a Jack of Spades and Ace of Spades, worth 50 points!
+
+5 of a Kind
+5 columns of cards with a sum of the same value for each will earn you 100 points!
+
+Straight
+For 100 points, make the columns total 16, 17, 18, 19 and 20 (in any order)
+
+Full House
+For a huge 200 points, get any one of the following: 
+two 3s and three 5s or 
+three 3s and two 6s or 
+two 9s and three Aces, in any order!
+
+Finish Deck
+100 points

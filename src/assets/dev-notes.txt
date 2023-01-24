@@ -1,0 +1,6 @@
+Pontos a tratar:
+
+- regras/instruções.
+- pontuações especiais.
+- alterar tamanho ou disposição, pra aparecer linhas e deck na tela inteiras. Sem scroll.
+- data e hora com os zeros à esquerda.
