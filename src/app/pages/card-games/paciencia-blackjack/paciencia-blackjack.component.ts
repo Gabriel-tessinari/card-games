@@ -7,6 +7,7 @@ import { Record } from '../../shared/domains/record';
 declare var $: any;
 
 @Component({
+  standalone: false,
   selector: 'app-paciencia-blackjack',
   templateUrl: './paciencia-blackjack.component.html',
   styleUrls: ['./paciencia-blackjack.component.scss']
