@@ -28,6 +28,10 @@ body {
     align-items: center;
   }
 
+  &.ai-start {
+    align-items: flex-start;
+  }
+
   &.fd-row {
     flex-direction: row;
   }

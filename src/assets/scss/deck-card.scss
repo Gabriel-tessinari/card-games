@@ -95,6 +95,11 @@
     background-color: $gold !important;
   }
 
+  &.over {
+    border: 1px solid $light;
+    margin-top: -90%;
+  }
+
   .card-mini-content {
     height: 50%;
     justify-content: center;

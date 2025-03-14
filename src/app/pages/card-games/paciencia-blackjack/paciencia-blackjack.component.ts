@@ -206,6 +206,10 @@ export class PacienciaBlackjackComponent implements OnInit {
   closeModalRestart() {
     $("#modal-restart").hide();
   }
+
+  get cardSlots() {
+    return Array.from({ length: 5 });
+  }
 }
 
 

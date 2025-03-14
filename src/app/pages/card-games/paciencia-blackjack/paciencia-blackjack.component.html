@@ -40,44 +40,35 @@
           </div>
         </div>
       </div>
-      <!-- <div class="card" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
-        <div class="card-header">{{activeCard.value}}{{activeCard.suit}}</div>
-        <div class="card-body">{{activeCard.suit}}</div>
-        <div class="card-footer">{{activeCard.value}}{{activeCard.suit}}</div>
-      </div> -->
     </div>
   </div>
 </section>
 
 <section class="container-fluid body">
-  <h2>Tabuleiro</h2>
-  <div class="row">
-    <div class="col-md-6 line" *ngFor="let line of lines" (click)="addCardToLine(line)" 
-    [ngClass]="(activeCard.points[0] + line.totalPoints1) > 21 ? 'disabled' : ''">
-      <div class="d-flex fd-row jc-space-between fw-wrap">
-        <div class="col-6 card-mini" *ngFor="let card of line.cards; let index = index"
-        [ngClass]="line.hasCardInPosition(index) ? 'card-mini-full' : ''">
-          <div class="row card-mini-content" *ngIf="line.hasCardInPosition(index)"
-          [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
-            {{card.value}}
-          </div>
-          <div class="row card-mini-content" *ngIf="line.hasCardInPosition(index)"
-          [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
-            {{card.suit}}
-          </div>
+  <h2>Clique em qual pilha deseja adicionar a carta.</h2>
+  <div class="d-flex jc-space-between">
+    <div class="line" *ngFor="let line of lines" (click)="addCardToLine(line)" 
+    [ngClass]="{disabled: (activeCard.points[0] + line.totalPoints1) > 21}" w-fit-content>
+      <div class="card-mini d-flex ai-start" style="font-size: 3rem;" *ngFor="let card of line.cards; let index = index"
+      [ngClass]="{'card-mini-full': line.hasCardInPosition(index), 'over': index > 0}">
+        <div class="card-mini-content" [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
+          {{card.value}}
         </div>
-        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(0)"></div>
-        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(1)"></div>
-        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(2)"></div>
-        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(3)"></div>
-        <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(4)"></div>
-        <div class="mx-2 d-flex fd-column ai-center">
-          <p class="mb-0">Pontos</p>
-          <p class="mb-0 score" *ngIf="line.totalPoints2 == 0">{{line.totalPoints1}}</p>
-          <p class="mb-0 score" *ngIf="line.totalPoints2 > 0">
-            {{line.totalPoints1}}/{{line.totalPoints2}}
-          </p>
+        <div class="card-mini-content" [ngClass]="card.isRed() ? 'red-suit' : 'black-suit'">
+          {{card.suit}}
         </div>
+      </div>
+      <div class="col-6 card-mini" *ngIf="!line.hasCardInPosition(0)"></div>
+      <div class="col-6 card-mini over" *ngIf="!line.hasCardInPosition(1)"></div>
+      <div class="col-6 card-mini over" *ngIf="!line.hasCardInPosition(2)"></div>
+      <div class="col-6 card-mini over" *ngIf="!line.hasCardInPosition(3)"></div>
+      <div class="col-6 card-mini over" *ngIf="!line.hasCardInPosition(4)"></div>
+      <div class="mx-2 d-flex fd-column ai-center">
+        <p class="mb-0">Pontos</p>
+        <p class="mb-0 score" *ngIf="line.totalPoints2 == 0">{{line.totalPoints1}}</p>
+        <p class="mb-0 score" *ngIf="line.totalPoints2 > 0">
+          {{line.totalPoints1}}/{{line.totalPoints2}}
+        </p>
       </div>
     </div>
   </div>

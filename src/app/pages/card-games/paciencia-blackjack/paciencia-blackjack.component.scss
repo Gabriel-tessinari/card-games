@@ -14,13 +14,13 @@
     pointer-events: none;
   }
 
+  &:hover {
+    opacity: 0.5;
+  }
+
   .score {
     font-size: 4.5rem;
   }
-}
-
-.line:hover {
-  opacity: 0.5;
 }
 
 /*TOAST*/
