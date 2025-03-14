@@ -15,17 +15,19 @@
   .card-header {
     background: $dark;
     color: $gold;
+    border-radius: 0;
   }
 }
 
 .btn-menu {
   border-color: $dark !important;
   color: $dark;
-  font-size: 100%;
+  font-size: 2rem;
+
+  &:hover {
+    background-color: $dark !important;
+    border-color: $dark !important;
+    color: $gold;
+  }
 }
 
-.btn-menu:hover {
-  background-color: $dark !important;
-  border-color: $dark !important;
-  color: $gold;
-}
