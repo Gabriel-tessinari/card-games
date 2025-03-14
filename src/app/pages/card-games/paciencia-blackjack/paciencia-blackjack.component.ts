@@ -27,28 +27,27 @@ export class PacienciaBlackjackComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.setStartLines();
-    this.setDeckAndCardPoints();
-    this.activeCard = this.deck.pop();
+    this.clean();
   }
 
   clean() {
     this.setStartLines();
-    this.deck.cards.push(...this.discardPile.cards);
-    this.deck.cards.push(this.activeCard);
-    this.deck.shuffle();
+    this.setDeckAndCardPoints();
+    this.activeCard = this.deck.pop();
     this.discardPile = new Deck();
     this.score = 0;
     this.oneBlackjack = false;
   }
 
   setStartLines() {
+    this.lines = [];
     for(let i = 0; i < 5; i++) {
       this.lines.push(new Line());
     }
   }
 
   setDeckAndCardPoints() {
+    this.deck = new Deck();
     this.deck.openPack();
     this.deck.shuffle();
     this.deck.setCardsPointsAceOneElevenRoyalAsTen();

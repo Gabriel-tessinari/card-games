@@ -11,6 +11,15 @@ body {
   font-size: xx-large;
 }
 
+//width
+[w-100] {
+  width: 100%;
+}
+
+[w-fit-content] {
+  width: fit-content;
+}
+
 //display flex options
 .d-flex {
   display: flex;

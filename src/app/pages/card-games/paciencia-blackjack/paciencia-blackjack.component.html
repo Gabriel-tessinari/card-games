@@ -17,27 +17,34 @@
 <section>
   <div class="container-fluid body">
     <div class="row">
-      <div class="card" [ngClass]="deck.numberOfCards > 0 ? 'deck-full' : 'deck-empty'">
-        <div class="mini-card" *ngIf="deck.numberOfCards > 0">
+      <div class="d-flex fd-column ai-center" w-fit-content>
+        <div style="font-size: 1.1rem;">Cartas restantes</div>
+        <div class="card-mini d-flex" style="font-size: 3rem;">
           {{deck.numberOfCards}}
         </div>
-        <div *ngIf="deck.numberOfCards == 0">
-          <i class="fa-regular fa-circle-xmark fa-5x"></i>
+      </div>
+      <div class="d-flex fd-column ai-center" w-fit-content>
+        <div style="font-size: 1.1rem;">Cartas descartadas</div>
+        <div class="card-mini d-flex" style="font-size: 3rem;">
+          {{discardPile.numberOfCards}}
         </div>
       </div>
-      <div class="card" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
+      <div class="d-flex fd-column ai-center" w-fit-content>
+        <div style="font-size: 1.1rem;">Carta</div>
+        <div class="card-mini card-mini-full d-flex" style="font-size: 3rem;">
+          <div class="card-mini-content" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
+            {{activeCard.value}}
+          </div>
+          <div class="card-mini-content" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
+            {{activeCard.suit}}
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card" [ngClass]="activeCard.isRed() ? 'red-suit' : 'black-suit'">
         <div class="card-header">{{activeCard.value}}{{activeCard.suit}}</div>
         <div class="card-body">{{activeCard.suit}}</div>
         <div class="card-footer">{{activeCard.value}}{{activeCard.suit}}</div>
-      </div>
-      <div class="card" [ngClass]="discardPile.numberOfCards > 0 ? 'deck-full' : 'deck-empty'">
-        <div class="mini-card" *ngIf="discardPile.numberOfCards > 0">
-          {{discardPile.numberOfCards}}
-        </div>
-        <div *ngIf="discardPile.numberOfCards == 0">
-          <i class="fa-regular fa-circle-xmark fa-5x"></i>
-        </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
