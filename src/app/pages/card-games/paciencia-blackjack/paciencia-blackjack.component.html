@@ -3,11 +3,8 @@
     <div class="container-fluid fw-wrap">
       <a class="navbar-brand" href="#">Jogos</a>
       <h1 class="mb-0">Pontuação: {{score}}</h1>
-      <div>
-        <button class="btn btn-nav" style="margin: 8px;" type="button"
-        (click)="openModalRestart()">
-          Reiniciar Jogo
-        </button>
+      <div class="d-flex gp-2">
+        <button class="btn btn-nav" type="button" (click)="openModalRestart()">Reiniciar Jogo</button>
         <button class="btn btn-nav" type="button" (click)="rulesModal.open()">Regras</button>
       </div>
     </div>

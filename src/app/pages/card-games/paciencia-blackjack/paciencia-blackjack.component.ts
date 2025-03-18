@@ -23,9 +23,7 @@ export class PacienciaBlackjackComponent implements OnInit {
   oneBlackjack: boolean = false;
   toastMessage: string;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.clean();
